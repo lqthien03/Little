@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(TicketController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/cancel', 'cancel')->name('checkout.cancel');
+    Route::get('/success', 'success')->name('checkout.success');
+    Route::post('/beforepay', 'beforepay')->name('beforepay');
+    Route::post('/checkout', 'checkout')->name('checkout');
+    Route::post('/save', 'save')->name('save');
+    Route::post('/webhook', 'webhook')->name('webhook');
+});
+
+Route::get('/event', function () {
+    return view('event');
+});
+Route::get('/contact', function () {
+    return view('contact');
 });
