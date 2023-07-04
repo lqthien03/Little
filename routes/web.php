@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,10 +24,20 @@ Route::controller(TicketController::class)->group(function () {
     Route::post('/save', 'save')->name('save');
     Route::post('/webhook', 'webhook')->name('webhook');
 });
-
-Route::get('/event', function () {
-    return view('event');
+Route::controller(EventController::class)->group(function () {
+    Route::get('/event', 'event')->name('events.event');
+    Route::get('/event-detail/{id}', 'eventDetail')->name('events.event_detail');
 });
+
+
+
+
 Route::get('/contact', function () {
     return view('contact');
+});
+Route::get('/pay', function () {
+    return view('pay');
+});
+Route::get('/pay_success', function () {
+    return view('pay_success');
 });

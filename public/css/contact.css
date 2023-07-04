@@ -1,0 +1,28 @@
+.infomation-item-contact {
+    margin-left: 150px;
+    margin-right: 40px;
+    margin-top: 200px;
+    background-color: #fde8b3;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px #ffca7b;
+}
+
+.infomation-form-contact {
+    width: 75%;
+    position: absolute;
+    top: 220px;
+    left: 200px;
+}
+
+#event-contact {
+
+    background-color: #fff6d4;
+    border-radius: 10px;
+    border: 3px dashed #ffb489;
+    min-height: 100px;
+    padding: 10px;
+    height: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
