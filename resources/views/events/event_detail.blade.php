@@ -1,5 +1,9 @@
 @extends('layout.master')
 @section('content')
+    <img src="https://res.cloudinary.com/dbgqqupsw/image/upload/v1688568499/Frame_entzej.svg" alt=""
+        style="position: absolute; top: 10%; left: 0;width:30%">
+    <img src="https://res.cloudinary.com/dbgqqupsw/image/upload/v1688568500/Frame2_hrfrrk.svg" alt=""
+        style="position: absolute; top: 2%; right: 0;width:30%">
     <div class="infomation-form-container">
         <p id="event-detail-name">Sự kiện 1</p>
     </div>

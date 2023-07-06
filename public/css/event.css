@@ -73,3 +73,14 @@
     padding: 10px;
     height: 420px;
 }
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-price {
+    color: #FA7D09;
+    line-height: 60px;
+    font-size: 32px;
+    font-weight: 700;
+}

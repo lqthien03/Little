@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->date('time_start')->nullable();
             $table->date('time_end')->nullable();
-            $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('price', 10, 3)->nullable();
             $table->text('detail')->nullable();
             $table->string('url');
             $table->timestamps();
