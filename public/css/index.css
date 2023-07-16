@@ -254,3 +254,7 @@ li {
 .link-custom:hover {
     color: rgb(255, 244, 225);
 }
+
+.text-danger {
+    font-size: 5px;
+}

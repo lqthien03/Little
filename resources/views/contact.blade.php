@@ -9,25 +9,50 @@
         <div class="row infomation-form-contact ">
             <div class="col-8 ">
                 <div class="row" id="event-content">
-                    <form action="" method="post">
+                    <form action="/send-contact" method="post">
+                        @csrf
                         <label for="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mollis
                             justo. Etiam volutpat tellus quis risus volutpat, ut posuere ex facilisis. </label>
                         <div class="row mb-3 mt-3">
-                            <div class="col-4"><input type="text" class="form-control" placeholder="Tên"></div>
-                            <div class="col-8"><input type="text" class="form-control" placeholder="Email"></div>
+                            <div class="col-4"><input type="text" class="form-control" placeholder="Tên" name="name">
+                            </div>
+
+                            <div class="col-8"><input type="text" class="form-control" placeholder="Email"
+                                    name="email"></div>
+
                         </div>
                         <div class="row mb-3">
-                            <div class="col-4"><input type="text" class="form-control" placeholder="Số điện thoại">
+                            <div class="col-4"><input type="text" class="form-control" placeholder="Số điện thoại"
+                                    name="phone">
                             </div>
-                            <div class="col-8"><input type="text" class="form-control" placeholder="Địa chỉ"></div>
+
+                            <div class="col-8"><input type="text" class="form-control" placeholder="Địa chỉ"
+                                    name="address"></div>
+
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
-                                <textarea name="" class="form-control" placeholder="Nhập lời nhắn" rows="4"></textarea>
+                                <textarea class="form-control" name="messeger" placeholder="Nhập lời nhắn" rows="4"></textarea>
+
                             </div>
                         </div>
+                        @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('phone')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('address')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        @error('messeger')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                         <div class="d-flex align-items-center justify-content-center w-50 m-auto">
-                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                            <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
                                 Gửi liên hệ
                             </button>
