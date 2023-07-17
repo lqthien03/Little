@@ -14,43 +14,46 @@
                         <label for="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mollis
                             justo. Etiam volutpat tellus quis risus volutpat, ut posuere ex facilisis. </label>
                         <div class="row mb-3 mt-3">
-                            <div class="col-4"><input type="text" class="form-control" placeholder="Tên" name="name">
+                            <div class="col-4">
+                                <input type="text" class="form-control" placeholder="Tên" name="name">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
-                            <div class="col-8"><input type="text" class="form-control" placeholder="Email"
-                                    name="email"></div>
+                            <div class="col-8">
+                                <input type="text" class="form-control" placeholder="Email" name="email">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
 
                         </div>
                         <div class="row mb-3">
-                            <div class="col-4"><input type="text" class="form-control" placeholder="Số điện thoại"
-                                    name="phone">
+                            <div class="col-4">
+                                <input type="text" class="form-control" placeholder="Số điện thoại" name="phone">
+                                @error('phone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
-                            <div class="col-8"><input type="text" class="form-control" placeholder="Địa chỉ"
-                                    name="address"></div>
+                            <div class="col-8">
+                                <input type="text" class="form-control" placeholder="Địa chỉ" name="address">
+                                @error('address')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
 
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
                                 <textarea class="form-control" name="messeger" placeholder="Nhập lời nhắn" rows="4"></textarea>
-
-                            </div>
-                        </div>
-                        @error('name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        @error('email')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        @error('phone')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        @error('address')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        @error('messeger')
+                                @error('messeger')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+                            </div>
+                        </div>
+
                         <div class="d-flex align-items-center justify-content-center w-50 m-auto">
                             <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
@@ -100,4 +103,17 @@
             </div>
         </div>
     </div>
+
+    @if (isset($adminEmail))
+        <div class="table-notification">
+            <button
+                style="float:right ; border:none; border-radius:50px; background-color: white; width: 35px;
+        height: 35px;">
+                <span id="close" onclick="this.parentNode.parentNode.remove(); return false;">x</span></button>
+            <div class=" content-notification d-flex justify-content-center align-items-center">
+                <p> Gửi liên hệ thành công.
+                    Vui lòng kiên nhẫn đợi phản hồi từ chúng tôi, bạn nhé!</p>
+            </div>
+        </div>
+    @endif
 @endsection

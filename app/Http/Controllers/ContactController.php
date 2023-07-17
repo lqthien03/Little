@@ -8,21 +8,12 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    // public function sendContact(Request $request)
-    // {
-    //     $arr = request()->post();
-    //     $name = trim(strip_tags($arr['name']));
-    //     $phone = trim(strip_tags($arr['phone']));
-    //     $email = trim(strip_tags($arr['email']));
-    //     $address = trim(strip_tags($arr['address']));
-    //     $messeger = trim(strip_tags($arr['messeger']));
-    //     $adminEmail = 'quocthien0404@gmail.com';
+    public function contact()
+    {
+        return view('contact');
+    }
 
-    //     Mail::mailer('smtp')->to($adminEmail)
-    //         ->send(new ContactEmail($name, $phone, $email, $address, $messeger));
 
-    //     return view('contact')->with(['adminEmail' => $adminEmail]);
-    // }
     public function sendContact(Request $request)
     {
         $validatedData = $request->validate([
@@ -31,6 +22,14 @@ class ContactController extends Controller
             'email' => 'required|email',
             'address' => 'required',
             'messeger' => 'required',
+        ], [
+            'name.required' => 'Tên không được bỏ trống',
+            'phone.required' => 'Số điện thoại không được bỏ trống',
+            'email.required' => 'Email không được bỏ trống',
+            'email.email' => 'Email không hợp lệ',
+            'address.required' => 'Địa chỉ không được bỏ trống',
+            'message.required' => 'Tin nhắn không được bỏ trống',
+
         ]);
 
         $name = trim(strip_tags($validatedData['name']));

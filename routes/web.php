@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
-// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;    
 use App\Mail\ContactEmail;
 use Barryvdh\DomPDF\Facade as PDF;
 // use PDF;
@@ -42,16 +41,10 @@ Route::controller(EventController::class)->group(function () {
     Route::get('/event-detail/{id}', 'eventDetail')->name('events.event_detail');
 });
 
-
 Route::get('/contact', function () {
     return view('contact');
 });
 
-
+Route::get('/send-contact', [ContactController::class, 'contact'])->name('send-contact');
 Route::post('/send-contact', [ContactController::class, 'sendContact'])->name('send-contact');
 
-
-Route::get("/thongbao", function (Request $request) {
-    $tb = $request->session()->get('thongbao');
-    return view('thongbao', ['thongbao' => $tb]);
-});

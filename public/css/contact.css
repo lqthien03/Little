@@ -26,3 +26,18 @@
     margin-left: 0px;
     margin-right: 0px;
 }
+
+.table-notification {
+    position: absolute;
+    width: 30%;
+    background-color: white;
+    border-radius: 20px;
+    width: 450px;
+    height: 160px;
+    left: 530px;
+    top: 200px;
+}
+
+.content-notification {
+    padding: 55px;
+}
